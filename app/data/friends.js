@@ -1,4 +1,5 @@
 var scores = [];
+var topFriendDiff = [];
 
 var Friend = function(name, photo, scores){
 	this.name = name;
@@ -24,44 +25,33 @@ var friends = [
 	}
 ];
 
-module.exports.findTopFriend = function(user){
+module.exports.compareScores = function(user){
 	var topFriend = "";
 	var topPhoto = "";
 	scores = [];
 	var compatibility = 40;
 
-	scores.push(user.score1, user.score2, user.score3, user.score4, user.score5, user.score6, 
-		user.score7, user.score8, user.score9, user.score10);
+	scores.push(user.score1, user.score2, user.score3, user.score4, user.score5, user.score6, user.score7, user.score8, user.score9, user.score10);
 
 	for(var i = 0; i < friends.length; i++){
-		var currentUser = friends[i];
-		console.log(currentUser);
-		var total = 0;
-
-		var potential = currentUser.scores;
-		compareScores(scores);	
+		console.log(friends.length);
+		var potential = friends[i].scores;
+		var total = getTotalDifference(potential);
 
 		if (total < compatibility){
-	// 		topFriend = currentUser.name;
-	// 		topPhoto = currentUser.photo;
-	// 	};
-};
-
-
-module.exports.compareScores = function(user){
-	for(var i = 0; i < 10; i++){
-			var difference = Math.abs(potential[i] - scores[i]);
-			console.log(difference);
-			total += difference;
-		};
-	return total;
-
-	// 
+			console.log("i is equal to:" + i);
+			topPhoto = friends[i].photo;
+			topFriend = friends[i].name;
+			console.log(topFriend);
+			compatibility = total;
+		};	
 	};
 
-	// renderResult(topFriend, topPhoto);
-
+	renderResult(topFriend, topPhoto);	
 };
+		
+
+	
 
 module.exports.addToFriends = function(user){
 	var newFriend = new Friend (user.name, user.photo, scores);
@@ -85,7 +75,17 @@ function renderResult(){
 	console.log("Got a top friend!");
 };
 
+function getTotalDifference(potential){
+	var total = 0;
 
+	for(var i = 0; i < potential.length; i++){
+		var difference = Math.abs(potential[i] - scores[i]);
+		console.log(difference);
+		total += difference;
+	};
+	console.log(total);
+	return total;
+};
 
 module.exports.friends = friends;
 

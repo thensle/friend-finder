@@ -13,10 +13,6 @@ module.exports = function(server){
 		var user = request.body;
 		friends.compareScores(user);
 		friends.addToFriends(user);
-		console.log(user.score1);
-		console.log(user.score2);
-
-		response.json(user);
-		// response.redirect("/");
-});
+		response.redirect("/");
+	});
 };
