@@ -9,4 +9,8 @@ module.exports = function(server){
 	server.use(function(request, response){
 		response.sendFile(path.join(__dirname, "/../public/home.html"));
 	});
+
+	server.get("/", function(request, response){
+		response.sendFile(path.join(__dirname, "/../public/images/cat-meme.jpg"));
+	});
 };

@@ -1,3 +1,6 @@
+//Dependencies
+var frontEnd = require("../public/app.js");
+
 var scores = [];
 var topFriendDiff = [];
 
@@ -47,32 +50,13 @@ module.exports.compareScores = function(user){
 		};	
 	};
 
-	renderResult(topFriend, topPhoto);	
+	frontEnd.renderResult(topFriend, topPhoto);	
 };
 		
-
-	
 
 module.exports.addToFriends = function(user){
 	var newFriend = new Friend (user.name, user.photo, scores);
 	friends.push(newFriend);
-};
-
-//API Call
-
-// function callAPI(){
-// 	var query = "http://localhost:8080/api/friends";
-// 	$.ajax({
-// 		url: query
-// 		method: GET
-// 	}).done(function(data){
-// 		renderHTML(data);
-// 	});
-// };
-
-// //Render HTML 
-function renderResult(){
-	console.log("Got a top friend!");
 };
 
 function getTotalDifference(potential){
