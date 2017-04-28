@@ -2,8 +2,67 @@
 <html>
 <head>
 	<title>Friend-Finder!</title>
+	<script type="text/javascript" src="jquery.js"></script>
 </head>
 <body>
 	<h1>Find More Friends, Now!</h1>
+
+	<h4>For the questions below, answer on a 1 to 5 scale; 1 being <i>strongly disagree</i>, and 5 being <i>strongly agree</i>. Answer as honestly as possible - there are no wrong answers!</h4>
+
+	<form action="/survey/create" method="POST">
+		<label for="name">Name:</label>
+		<input type="text" name="name">
+			<br><br>
+		<label for="photo">Link to Photo:</label>
+		<input type="text" name="photo">
+			<br><br>
+		<label for="score1">You try to respond to your e-mails as soon as possible and cannot stand a messy inbox.</label>
+		<br>
+		<label>Strongly Disagree</label><input type="range" name="score1" min="0" max="5"><label>Strongly Agree</label>
+			<br><br>
+		<label for="score2">You often get so lost in thoughts that you ignore or forget your surroundings.</label>
+		<br>
+		<label>Strongly Disagree</label><input type="range" name="score2" min="0" max="5"><label>Strongly Agree</label>
+			<br><br>
+		<label for="score3">You find it easy to stay relaxed and focused even when there is some pressure.</label>
+		<br>
+		<label>Strongly Disagree</label><input type="range" name="score3" min="0" max="5"><label>Strongly Agree</label>
+			<br><br>
+		<label for="score4">You do not usually initiate conversations.</label>
+		<br>
+		<label>Strongly Disagree</label><input type="range" name="score4" min="0" max="5"><label>Strongly Agree</label>
+			<br><br>
+		<label for="score5">You rarely do something just out of sheer curiosity.</label>
+		<br>
+		<label>Strongly Disagree</label><input type="range" name="score5" min="0" max="5"><label>Strongly Agree</label>
+			<br><br>
+		<label for="score6">You are usually highly motivated and energetic.</label>
+		<br>
+		<label>Strongly Disagree</label><input type="range" name="score6" min="0" max="5"><label>Strongly Agree</label>
+			<br><br>
+		<label for="score7">Winning a debate matters less to you than making sure no one gets upset.</label>
+		<br>
+		<label>Strongly Disagree</label><input type="range" name="score7" min="0" max="5"><label>Strongly Agree</label>
+			<br><br>
+		<label for="score8">Being able to develop a plan and stick to it is the most important part of every project.</label>
+		<br>
+		<label>Strongly Disagree</label><input type="range" name="score8" min="0" max="5"><label>Strongly Agree</label>
+			<br><br>
+		<label for="score9">You consider yourself more practical than creative.</label>
+		<br>
+		<label>Strongly Disagree</label><input type="range" name="score9" min="0" max="5"><label>Strongly Agree</label>
+			<br><br>
+		<label for="score10">It is often difficult for you to relate to other people's feelings.</label>
+		<br>
+		<label>Strongly Disagree</label><input type="range" name="score10" min="0" max="5"><label>Strongly Agree</label>
+			<br><br>
+		<input type="submit" class="survey-submit" value="Submit">
+	</form>
+
+	<script type="text/javascript">
+		$(".survey-submit").on("click", function(data){
+			console.log("Infomation submitted!");
+		});
+	</script>
 </body>
 </html>
