@@ -24,9 +24,9 @@ var friends = [
 	}
 ];
 
-
-module.exports.compareScores = function(user){
+module.exports.findTopFriend = function(user){
 	var topFriend = "";
+	var topPhoto = "";
 	scores = [];
 	var compatibility = 40;
 
@@ -34,21 +34,32 @@ module.exports.compareScores = function(user){
 		user.score7, user.score8, user.score9, user.score10);
 
 	for(var i = 0; i < friends.length; i++){
+		var currentUser = friends[i];
+		console.log(currentUser);
 		var total = 0;
 
-		for(var i = 0; i < friends.scores.length; i++){
-			var difference = Math.abs(friends.scores[i] - scores[i]);
+		var potential = currentUser.scores;
+		compareScores(scores);	
+
+		if (total < compatibility){
+	// 		topFriend = currentUser.name;
+	// 		topPhoto = currentUser.photo;
+	// 	};
+};
+
+
+module.exports.compareScores = function(user){
+	for(var i = 0; i < 10; i++){
+			var difference = Math.abs(potential[i] - scores[i]);
 			console.log(difference);
 			total += difference;
 		};
-		console.log(total);
-		if (total < compatibility){
-			topFriend = friends[i].name;
-		};
+	return total;
 
+	// 
 	};
 
-
+	// renderResult(topFriend, topPhoto);
 
 };
 
@@ -70,7 +81,9 @@ module.exports.addToFriends = function(user){
 // };
 
 // //Render HTML 
-// function renderHTML(){};
+function renderResult(){
+	console.log("Got a top friend!");
+};
 
 
 
