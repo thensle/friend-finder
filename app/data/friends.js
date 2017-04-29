@@ -1,5 +1,6 @@
 //Dependencies
 var frontEnd = require("../public/app.js");
+console.log(frontEnd);
 
 var scores = [];
 var topFriendDiff = [];
@@ -50,7 +51,7 @@ module.exports.compareScores = function(user){
 		};	
 	};
 
-	renderResult(topFriend, topPhoto);	
+	frontEnd.renderResult(topFriend, topPhoto);	
 };
 		
 
@@ -69,10 +70,6 @@ function getTotalDifference(potential){
 	};
 	console.log(total);
 	return total;
-};
-
-function renderResult(friend, photo){
-	$(".friend-result").html("Your top friend is: " + friend);
 };
 
 module.exports.friends = friends;
