@@ -50,7 +50,7 @@ module.exports.compareScores = function(user){
 		};	
 	};
 
-	frontEnd.renderResult(topFriend, topPhoto);	
+	renderResult(topFriend, topPhoto);	
 };
 		
 
@@ -69,6 +69,10 @@ function getTotalDifference(potential){
 	};
 	console.log(total);
 	return total;
+};
+
+function renderResult(friend, photo){
+	$(".friend-result").html("Your top friend is: " + friend);
 };
 
 module.exports.friends = friends;

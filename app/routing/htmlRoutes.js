@@ -10,7 +10,11 @@ module.exports = function(server){
 		response.sendFile(path.join(__dirname, "/../public/home.html"));
 	});
 
-	server.get("/", function(request, response){
+	server.use(function(request, response){
 		response.sendFile(path.join(__dirname, "/../public/images/cat-meme.jpg"));
+	});
+
+	server.get("/app.js", function(request, response){
+		response.sendFile(path.join(__dirname, "/../public/app.js"));
 	});
 };

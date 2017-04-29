@@ -1,4 +1,6 @@
 module.exports.renderResult = function(friend, photo){
-	console.log("Top Friend found!");
+	$(".friend-result").html("Your top friend is: " + friend);
 };
+
+
 
